@@ -43,3 +43,30 @@ function bindListenerToClassName(className, func, listenerType) {
   });
   //modeBtn click: When the user clicks on a mode button in the bottom fixed bar, we need to switch to
   //the corresponding area of the app.   
+
+  //This block handles highlighting when clicking the aboutMe button
+  document.getElementById("aboutMeMode").addEventListener("click",function(e) {
+    if (mode != "aboutMeMode") {
+      document.getElementById(mode).classList.remove("menuItemSelected");
+      this.classList.add("menuItemSelected");
+      mode = "aboutMeMode";
+    }
+  });
+
+  //Hightlights qualifications when clicked
+  document.getElementById("qualificationsMode").addEventListener("click",function(e) {
+    if (mode != "qualificationsMode") {
+      document.getElementById(mode).classList.remove("menuItemSelected");
+      this.classList.add("menuItemSelected");
+      mode = "qualificationsMode";
+    }
+  });
+
+  //Highlights hobbies when clicked
+  document.getElementById("hobbiesMode").addEventListener("click",function(e) {
+    if (mode != "hobbiesMode") {
+      document.getElementById(mode).classList.remove("menuItemSelected");
+      this.classList.add("menuItemSelected");
+      mode = "hobbiesMode";
+    }
+  });
