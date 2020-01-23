@@ -20,8 +20,8 @@ for (var i = 0; i < bottomBtns.length; ++i) {
 
 // Hide all pages at the startup
 // We want to show this page to start document.getElementById("aboutMeDiv").style.display = "none";
-document.getElementById("qualificationsDiv").style.display = "none";
-document.getElementById("hobbiesDiv").style.display = "none";
+document.getElementById("qualificationsModeDiv").style.display = "none";
+document.getElementById("hobbiesModeDiv").style.display = "none";
 document.getElementById("hometownDiv").style.display = "none";
 document.getElementById("majorDiv").style.display = "none";
 document.getElementById("workDiv").style.display = "none";
