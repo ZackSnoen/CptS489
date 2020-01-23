@@ -8,3 +8,9 @@ var menuOpen = false;
 // startup with current page About Me
 var mode = "aboutMeMode"; // Current ui mode
 document.getElementById(mode).classList.add("menuItemSelected")
+
+// Bind bottomBarBtnClick function to all elements of class bottomBarBtn
+var bottomBtns = document.getElementsByClassName("bottomBarBtn");
+for (var i = 0; i < bottomBtns.length; ++i) {
+    bottomBtns[i].addEventListener("click",bottomBarBtnClick);
+}

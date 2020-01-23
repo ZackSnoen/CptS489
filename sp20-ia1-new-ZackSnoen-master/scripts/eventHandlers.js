@@ -45,7 +45,7 @@ function bindListenerToClassName(className, func, listenerType) {
   //the corresponding area of the app.   
 
   //This block handles highlighting when clicking the aboutMe button
-  document.getElementById("aboutMeMode").addEventListener("click",function(e) {
+  /*document.getElementById("aboutMeMode").addEventListener("click",function(e) {
     if (mode != "aboutMeMode") {
       document.getElementById(mode).classList.remove("menuItemSelected");
       this.classList.add("menuItemSelected");
@@ -69,4 +69,13 @@ function bindListenerToClassName(className, func, listenerType) {
       this.classList.add("menuItemSelected");
       mode = "hobbiesMode";
     }
-  });
+  });*/
+
+  // Replacing three above with better code.
+  var bottomBarBtnClick = function() {
+    if (mode != this.id) {
+      document.getElementById(mode).classList.remove("menuItemSelected");
+      this.classList.add("menuItemSelected");
+      mode = this.id;
+    }
+  }
