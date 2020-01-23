@@ -27,7 +27,7 @@
   <!-- Begin the BODY section of the document.  -->
   
   <!-- The top navigation bar -->
-  <div>
+  <div id="navBar" class="navbar">
     <span class="navbarItems">
       <button id="menuBtn" style="background-color: transparent; 
       border-color:#13294E; text-align: center">
@@ -41,28 +41,28 @@
         Activity Feed</span>
     </span>
     </div>
-  <div id="sideMenu" class="sidenav" w3-include-html="html/sideMenu.html"></div>
+  <!--<div id="sideMenu" class="sidenav" w3-include-html="html/sideMenu.html"></div>-->
   <!-- End top navigation bar -->
 
   <!--Side Menu -->
-  <div class="sidenav">
+  <div id="sideMenu" class="sidenav">
     <!--Side menu title-->
     <div class="sidenavtitle">
       <img src='http://tiny.cc/chrisprofilepic' height='50' width='50'>
-      <span id="userID" style="font-size:14px">&nbsp;Chris Hundhausen&nbsp;&nbsp;</span>
+      <span id="userID" style="font-size:14px">&nbsp;Zack Snoen&nbsp;&nbsp;</span>
     </div>
     <!--Side menu content -->
     <div id="sideMenuContent">
     <!--BEGIN GROUP OF MODE/ACTION BUTTONS -->
-      <a id= "" class=""><span class=""></span>&nbsp;Item 1</a>
-      <a id= "" class=""><span class=""></span>&nbsp;Item 2</a>
+      <a id= "" class=""><span class=""></span>&nbsp;About Me</a>
+      <a id= "" class=""><span class=""></span>&nbsp;Hometown</a>
     
-      <a id= "" class=""><span class=""></span>&nbsp;Item 3</a>
-      <a id= "" class=""><span class=""></span>&nbsp;Item 4</a>
+      <a id= "" class=""><span class=""></span>&nbsp;Major</a>
+      <a id= "" class=""><span class=""></span>&nbsp;Qualifications</a>
       <a id= "" class=""><span class=""></span>&nbsp;Item 5</a>
       <a id= "" class=""><span class=""></span>&nbsp;Item 6</a>
     
-      <a id= "" class=""><span class=""></span>&nbsp;Item 7</a>
+      <a id= "" class=""><span class=""></span>&nbsp;Hobbies</a>
       <a id= "" class=""><span class=""></span>&nbsp;Item 8</a>
       <a id= "" class="" ><span class=""></span>&nbsp;Item 9</a>
     </div>
@@ -70,15 +70,17 @@
 <!-- END SIDEMENU -->
 
 <!-- Bottom mode bar -->
-<a class="feedMode bottomBarBtn"><span style="display:block; padding-top:3px"
+<div id="bottomBar" class="bottombar">
+<a id="aboutMeMode" class="aboutMeMode bottomBarBtn"><span style="display:block; padding-top:3px"
 class="nonMenuItem fas fa-th-list"></span><span
-style="display:block;font-size: small">Feed</span></a>
-<a class="roundsMode bottomBarBtn"><span style="display:block;
+style="display:block;font-size: small">About Me</span></a>
+<a id="qualificationsMode" class="qualificationsMode bottomBarBtn"><span style="display:block;
 padding-top:3px" class="nonMenuItem fas fa-history"></span><span
-style="display:block;font-size: small">Rounds</span></a>
-<a class="coursesMode bottomBarBtn"><span style="display:block;
+style="display:block;font-size: small">Qualifications</span></a>
+<a id="hobbiesMode" class="hobbiesMode bottomBarBtn"><span style="display:block;
 padding-top:3px" class="nonMenuItem fas fa-flag"></span><span
-style="display:block;font-size: small">Courses</span></a> 
+style="display:block;font-size: small">Hobbies</span></a> 
+</div>
 <!-- End bottom mode bar -->
     
   <!-- Single App page definitions go here. -->

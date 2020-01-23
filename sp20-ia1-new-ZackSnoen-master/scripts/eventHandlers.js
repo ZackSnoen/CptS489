@@ -18,12 +18,28 @@ function bindListenerToClassName(className, func, listenerType) {
   //presently displayed -- hamburger or left arrow. If hamburger, we need to check what mode we're in 
   //and what the current page is and change the menu contents accordingly. If left arrow, we need to hide
   //the menu.
+  document.getElementById("menuBtn").addEventListener("click",function(e) {
+    if (!menuOpen) {
+      document.getElementById("menuBtnIcon").classList.remove("fa-bars");
+      document.getElementById("menuBtnIcon").classList.add("fa-times");
+      document.getElementById("sideMenu").style.width = "250px";
+      menuOpen = true;
+      e.stopPropagation();
+    }
+  });
   
   // sideMenuItem Click: This function does the side menu housekeeping in cases where the item clicked 
   // (of class sideMenuItem) is actually a redirect to another page.  
   
   //document click: If the user clicks anywhere in the document while the side menu is open, we need to
   //close the menu, toggle the menu state, and re-enable all buttons/input fields on the page.
-  
+  document.addEventListener("click",function(e) {
+    if (menuOpen) {
+      document.getElementById("menuBtnIcon").classList.remove("fa-times");
+      document.getElementById("menuBtnIcon").classList.add("fa-bars");
+      document.getElementById("sideMenu").style.width = "0";
+      menuOpen = false;
+    }
+  });
   //modeBtn click: When the user clicks on a mode button in the bottom fixed bar, we need to switch to
   //the corresponding area of the app.   
