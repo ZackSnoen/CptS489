@@ -83,6 +83,10 @@ function bindListenerToClassName(className, func, listenerType) {
     if (mode != this.id) {
       var prevMode = mode;
       mode = this.id;
+      // Add this to set sideMode to update current side menu clicked
+      // Formatted correctly by slicing it.
+      prevSideMode = sideMode;
+      sideMode = mode.slice(0, -4);
       //Change mode button:
       document.getElementById(prevMode).classList.remove("menuItemSelected");
       this.classList.add("menuItemSelected");
@@ -90,6 +94,14 @@ function bindListenerToClassName(className, func, listenerType) {
       document.getElementById("topBarTitle").textContent = modeToTitle[mode];
       //Change page content
       document.getElementById(prevMode + "Div").style.display = "none";
+      // Handle changing pages from sub menus and not bottom bar menus.
+      if (prevSideMode === "aboutMe" || prevSideMode === "qualifications" || prevSideMode === "hobbies")
+      {
+        document.getElementById(prevSideMode + "ModeDiv").style.display = "none";
+      }
+      else{
+        document.getElementById(prevSideMode + "Div").style.display = "none";
+      }
       document.getElementById(mode + "Div").style.display = "block";
       //Change menu items:
       var oldItems = document.getElementsByClassName(prevMode + "Item");
@@ -106,4 +118,28 @@ function bindListenerToClassName(className, func, listenerType) {
 
     // sideMenuItem Click: This function does the side menu housekeeping in cases where the item clicked 
   // (of class sideMenuItem) is actually a redirect to another page.  
-  
+  var sideMenuItemClick = function() {
+    if (sideMode != this.id) {
+      var prevSideMode = sideMode;
+      sideMode = this.id;
+      // Highlight new side menu
+      document.getElementById(prevSideMode).classList.remove("menuItemSelected");
+      this.classList.add("menuItemSelected");
+      // Change page content to new sub menu, we will keep the same title at top left though
+      // We must check if it is a bottom bar menu because of naming conventions.
+      if (prevSideMode === "aboutMe" || prevSideMode === "qualifications" || prevSideMode === "hobbies")
+      {
+        document.getElementById(prevSideMode + "ModeDiv").style.display = "none";
+      }
+      else {
+        document.getElementById(prevSideMode + "Div").style.display = "none";
+      }
+      if (sideMode === "aboutMe" || sideMode === "qualifications" || sideMode === "hobbies")
+      {
+        document.getElementById(sideMode + "ModeDiv").style.display = "block";
+      }
+      else {
+        document.getElementById(sideMode + "Div").style.display = "block";
+      }
+    }
+  }

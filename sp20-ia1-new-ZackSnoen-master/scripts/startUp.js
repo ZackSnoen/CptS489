@@ -5,7 +5,9 @@ var menuOpen = false;
 
 // startup with current page About Me
 var mode = "aboutMeMode"; // Current ui mode
+var sideMode = "aboutMe"; // Current side menu picked
 document.getElementById(mode).classList.add("menuItemSelected")
+document.getElementById(sideMode).classList.add("menuItemSelected")
 
 // When changing modes, we'll use this to change the titles of pages
 var modeToTitle = {"aboutMeMode": "About Me",
@@ -16,6 +18,11 @@ var modeToTitle = {"aboutMeMode": "About Me",
 var bottomBtns = document.getElementsByClassName("bottomBarBtn");
 for (var i = 0; i < bottomBtns.length; ++i) {
     bottomBtns[i].addEventListener("click",bottomBarBtnClick);
+}
+// Bind sideMenuItemClick function to all elements of class menuItem
+var sideItems = document.getElementsByClassName("menuItem");
+for (var i = 0; i < sideItems.length; ++i) {
+    sideItems[i].addEventListener("click",sideMenuItemClick);
 }
 
 // Hide all pages at the startup
@@ -29,7 +36,7 @@ document.getElementById("schoolDiv").style.display = "none";
 document.getElementById("gamesDiv").style.display = "none";
 document.getElementById("snowboardingDiv").style.display = "none";
 
-    //Show only the feed mode menu items
+    //Show only the about me mode menu items
     
   var menuItems = document.getElementsByClassName("menuItem");
   for (var i = 0; i < menuItems.length; ++i) {
