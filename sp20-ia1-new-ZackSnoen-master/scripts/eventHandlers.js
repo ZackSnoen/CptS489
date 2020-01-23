@@ -28,9 +28,6 @@ function bindListenerToClassName(className, func, listenerType) {
     }
   });
   
-  // sideMenuItem Click: This function does the side menu housekeeping in cases where the item clicked 
-  // (of class sideMenuItem) is actually a redirect to another page.  
-  
   //document click: If the user clicks anywhere in the document while the side menu is open, we need to
   //close the menu, toggle the menu state, and re-enable all buttons/input fields on the page.
   document.addEventListener("click",function(e) {
@@ -72,10 +69,41 @@ function bindListenerToClassName(className, func, listenerType) {
   });*/
 
   // Replacing three above with better code.
-  var bottomBarBtnClick = function() {
+  /*var bottomBarBtnClick = function() {
     if (mode != this.id) {
       document.getElementById(mode).classList.remove("menuItemSelected");
       this.classList.add("menuItemSelected");
       mode = this.id;
     }
+  }*/
+  // Once again replaced the above block with better code to toggle modes
+
+  // This will change the title at the top and the contents of the page
+  var bottomBarBtnClick = function() {
+    if (mode != this.id) {
+      var prevMode = mode;
+      mode = this.id;
+      //Change mode button:
+      document.getElementById(prevMode).classList.remove("menuItemSelected");
+      this.classList.add("menuItemSelected");
+      //Change page title:
+      document.getElementById("topBarTitle").textContent = modeToTitle[mode];
+      //Change page content
+      document.getElementById(prevMode + "Div").style.display = "none";
+      document.getElementById(mode + "Div").style.display = "block";
+      //Change menu items:
+      var oldItems = document.getElementsByClassName(prevMode + "Item");
+      var newItems = document.getElementsByClassName(mode + "Item");
+      //Uses for loop:
+      for (var i = 0; i < oldItems.length; ++i) {
+        oldItems[i].style.display = "none";
+      }
+      for (var i = 0; i < newItems.length; ++i) {
+        newItems[i].style.display = "block";
+      }
+    }
   }
+
+    // sideMenuItem Click: This function does the side menu housekeeping in cases where the item clicked 
+  // (of class sideMenuItem) is actually a redirect to another page.  
+  
