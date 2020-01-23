@@ -9,8 +9,20 @@ var menuOpen = false;
 var mode = "aboutMeMode"; // Current ui mode
 document.getElementById(mode).classList.add("menuItemSelected")
 
+// When changing modes, we'll use this to change the titles of pages
+var modeToTitle = {"aboutMeMode": "About Me",
+                    "qualificationsMode": "Qualifications",
+                "hobbiesMode": "Hobbies"};
+
 // Bind bottomBarBtnClick function to all elements of class bottomBarBtn
 var bottomBtns = document.getElementsByClassName("bottomBarBtn");
 for (var i = 0; i < bottomBtns.length; ++i) {
     bottomBtns[i].addEventListener("click",bottomBarBtnClick);
 }
+
+document.getElementById("hometownDiv").style.display = "none";
+document.getElementById("majorDiv").style.display = "none";
+document.getElementById("workDiv").style.display = "none";
+document.getElementById("schoolDiv").style.display = "none";
+document.getElementById("gamesDiv").style.display = "none";
+document.getElementById("snowboardingDiv").style.display = "none";
